@@ -28,7 +28,7 @@
     "husky": "^8.0.3",
     "lint-staged": "^13.2.3",
     "nwb": "0.25.x",
-    "prettier": "^3.0.0",
+    "prettier": "^3.0.1",
     "value-or-function": "^4.0.0"
   },
   "author": "",
