@@ -38,7 +38,7 @@
     "src/**/*.js": "eslint --cache --fix"
   },
   "dependencies": {
-    "classnames": "^2.3.3",
+    "classnames": "^2.4.0",
     "color": "^4.2.3",
     "deepmerge": "^4.3.1",
     "mobx": "^6.12.0",
