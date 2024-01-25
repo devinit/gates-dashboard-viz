@@ -25,7 +25,7 @@
     "gulp": "^4.0.2",
     "gulp-clean": "^0.4.0",
     "gulp-rename": "^2.0.0",
-    "husky": "^8.0.3",
+    "husky": "^9.0.5",
     "lint-staged": "^15.2.0",
     "nwb": "0.25.x",
     "prettier": "^3.2.4",
