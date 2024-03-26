@@ -22,7 +22,7 @@ const init = (className) => {
            *
            * const chart = window.echarts.init(chartNode);
            */
-          const csv = 'https://raw.githubusercontent.com/devinit/di-website-data/main/2022/rh-and-fp-dropdowns.csv';
+          const csv = 'https://raw.githubusercontent.com/devinit/di-website-data/main/2024/rh-and-fp-dropdowns.csv';
           fetchCSVData(csv).then((data) => {
             const filterWrapper = addFilterWrapper(chartNode);
             const countryFilter = addFilter({

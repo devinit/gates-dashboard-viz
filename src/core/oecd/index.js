@@ -13,12 +13,27 @@ import { fetchCoreData } from '../../utils/data';
 // Your Code Goes Here i.e. functions
 
 const init = () => {
-  fetchCoreData([
-    { url: 'https://raw.githubusercontent.com/devinit/di-website-data/main/2022/RH_and_FP_Purpose_code_trends_chart_OECD.csv', state: 'dataOne' },
-    { url: 'https://raw.githubusercontent.com/devinit/di-website-data/main/2022/donor_by_recip_2019.csv', state: 'dataTwo' },
-    { url: 'https://raw.githubusercontent.com/devinit/di-website-data/main/2022/RH_FP_aid_type_OECD.csv', state: 'odaAidType' },
-    { url: 'https://raw.githubusercontent.com/devinit/di-website-data/main/2022/RH_FP_channels_OECD.csv', state: 'odaChannels' },
-  ], { country: 'United States' });
+  fetchCoreData(
+    [
+      {
+        url: 'https://raw.githubusercontent.com/devinit/di-website-data/main/2024/RH_and_FP_Purpose_code_trends_chart_OECD.csv',
+        state: 'dataOne',
+      },
+      {
+        url: 'https://raw.githubusercontent.com/devinit/di-website-data/main/2024/donor_by_recip_2019.csv',
+        state: 'dataTwo',
+      },
+      {
+        url: 'https://raw.githubusercontent.com/devinit/di-website-data/main/2024/RH_FP_aid_type_OECD.csv',
+        state: 'odaAidType',
+      },
+      {
+        url: 'https://raw.githubusercontent.com/devinit/di-website-data/main/2024/RH_FP_channels_OECD.csv',
+        state: 'odaChannels',
+      },
+    ],
+    { country: 'United States' },
+  );
   initDonorFilter('dicharts--donor-selector');
   initTableOne('dicharts--table-one');
   initBarChartOne('dicharts--chart-one');
