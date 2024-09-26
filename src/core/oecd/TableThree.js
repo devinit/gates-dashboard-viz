@@ -3,26 +3,43 @@ import { render } from 'react-dom';
 import { TableOne } from '../../components/TableOne/TableOne';
 import { filterDataByCountry, filterDataByPurpose, formatNumber } from '../../utils/data';
 import { addFilter, addFilterWrapper } from '../../widgets/filters';
-import { ALTERNATIVE_PURPOSE_TO_FILTER_BY, CHANNEL_FIELD, COUNTRY_FIELD, DEFAULT_COUNTRY, PURPOSE_FIELD, VALUE_FIELD } from '../../utils/constants';
+import {
+  ALTERNATIVE_PURPOSE_TO_FILTER_BY,
+  CHANNEL_FIELD,
+  COUNTRY_FIELD,
+  DEFAULT_COUNTRY,
+  PURPOSE_FIELD,
+  VALUE_FIELD,
+} from '../../utils/constants';
 
 const sumChannelData = (countryData) => {
-  const yearData = countryData.filter((item) => item['year'] === '2020');
+  const yearData = countryData.filter((item) => item['year'] === '2022');
 
   return yearData.reduce((acc, data) => {
-    return {...acc, [data[CHANNEL_FIELD]]: (parseFloat(acc[data[CHANNEL_FIELD]] || 0) + parseFloat(data[VALUE_FIELD] || 0)).toFixed(1) }
+    return {
+      ...acc,
+      [data[CHANNEL_FIELD]]: (parseFloat(acc[data[CHANNEL_FIELD]] || 0) + parseFloat(data[VALUE_FIELD] || 0)).toFixed(
+        1,
+      ),
+    };
   }, {});
 };
 
 const getRows = (tableData) => {
-  const sum = Object.keys(tableData).reduce((_sum, key) => formatNumber(_sum + formatNumber(Number(tableData[key]) || 0)), 0);
+  const sum = Object.keys(tableData).reduce(
+    (_sum, key) => formatNumber(_sum + formatNumber(Number(tableData[key]) || 0)),
+    0,
+  );
 
-  return Object.keys(tableData).map((dataKey) => {
-    return [dataKey, tableData[dataKey], (((tableData[dataKey]/sum)*100).toFixed(1) || 0)];
-  }).concat([['Total', sum, '100%']]);
+  return Object.keys(tableData)
+    .map((dataKey) => {
+      return [dataKey, tableData[dataKey], ((tableData[dataKey] / sum) * 100).toFixed(1) || 0];
+    })
+    .concat([['Total', sum, '100%']]);
 };
 
 const renderTable = (data, country, purpose, tableNode) => {
-  const rowHeader = ['Channel', '2020', '% Total'];
+  const rowHeader = ['Channel', '2022', '% Total'];
   const countryData = filterDataByPurpose(
     filterDataByCountry(data, country, COUNTRY_FIELD),
     purpose || 'Reproductive health care and family planning',
