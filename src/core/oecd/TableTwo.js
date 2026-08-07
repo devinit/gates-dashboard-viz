@@ -14,7 +14,7 @@ const getGroupedData = (countryData) => {
     for (let count = 0; count < countryData.length; count++) {
       if (iteratorData.length >= 1) {
         let maxRow = iteratorData.reduce((prev, current) => {
-          if (Number(prev['2021']) < Number(current['2021'])) {
+          if (Number(prev['2022']) < Number(current['2022'])) {
             return current;
           } else {
             return prev;
@@ -29,7 +29,7 @@ const getGroupedData = (countryData) => {
   for (let count = 0; count < 10; count++) {
     if (iteratorData.length >= 1) {
       let maxRow = iteratorData.reduce((prev, current) => {
-        if (Number(prev['2021']) < Number(current['2021'])) {
+        if (Number(prev['2022']) < Number(current['2022'])) {
           return current;
         } else {
           return prev;
@@ -55,11 +55,11 @@ const sortedDataRows = (data) => {
         fullRows.push([
           i + 1,
           data[i].recipient_name,
-          formatNumber(Number(data[i]['2017']), NO_DATA),
           formatNumber(Number(data[i]['2018']), NO_DATA),
           formatNumber(Number(data[i]['2019']), NO_DATA),
           formatNumber(Number(data[i]['2020']), NO_DATA),
           formatNumber(Number(data[i]['2021']), NO_DATA),
+          formatNumber(Number(data[i]['2022']), NO_DATA),
         ]);
       }
     }
@@ -71,11 +71,11 @@ const sortedDataRows = (data) => {
         fullRows.push([
           i + 1,
           data[i].recipient_name,
-          formatNumber(Number(data[i]['2017']), NO_DATA),
           formatNumber(Number(data[i]['2018']), NO_DATA),
           formatNumber(Number(data[i]['2019']), NO_DATA),
           formatNumber(Number(data[i]['2020']), NO_DATA),
           formatNumber(Number(data[i]['2021']), NO_DATA),
+          formatNumber(Number(data[i]['2022']), NO_DATA),
         ]);
       }
     }
@@ -93,7 +93,7 @@ const getUnsortedDataRow = (data, years) => {
 };
 
 const renderTable = (data, country, purpose, tableNode) => {
-  const YEARS = [2017, 2021];
+  const YEARS = [2018, 2022];
   const yearRange = YEARS[1] - YEARS[0] + 1;
   const count = [];
   for (const key of Array(yearRange).keys()) {
